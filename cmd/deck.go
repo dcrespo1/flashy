@@ -1,9 +1,14 @@
-package cmd
+type Rating int
+
+const (
+    Unrated   Rating = 0
+    Know      Rating = 1
+    NeedsWork Rating = 2
+)
 
 type Card struct {
-	Question string `json:"question"`
-	Answer string `json:"answer"`
-	Correct *bool `json:"correct,omitempty"`
+    Question string `json:"question"`
+    Answer   string `json:"answer"`
 }
 
 type Deck struct {
@@ -12,24 +17,9 @@ type Deck struct {
 }
 
 type StudySession struct {
-	StudiedDecks Deck
-	NumberCorrect int
-}
-
-
-// func CreateDeck(name string) Deck {  // this works but can be simplified
-// 	cards := []Card{}
-// 	deck := Deck{
-// 		DeckName: name,
-// 		Cards: cards,
-// 	}
-
-// 	return deck
-// }
-
-func CreateDeck(name string) Deck{
-	return Deck{
-		DeckName: name,
-		Cards: []Card{},
-	}
+    Deck           Deck
+    Ratings        map[int]Rating
+    TotalCards     int
+    KnowCount      int
+    NeedsWorkCount int
 }

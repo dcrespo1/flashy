@@ -58,7 +58,6 @@ func SaveConfig(cfg Config) error  {
 }
 
 
-
 func LoadConfig() (Config, error) {
 	fullPath, err := configPath()
 	if err != nil {
