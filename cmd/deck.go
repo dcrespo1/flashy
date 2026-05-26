@@ -1,3 +1,5 @@
+package cmd
+
 type Rating int
 
 const (
@@ -22,4 +24,12 @@ type StudySession struct {
     TotalCards     int
     KnowCount      int
     NeedsWorkCount int
+}
+
+
+func CreateDeck(name string) Deck{
+	return Deck{
+		DeckName: name,
+		Cards: []Card{},
+	}
 }
